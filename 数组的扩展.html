@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ES6-数组</title>
+</head>
+
+<body>
+	<script>
+		//扩展运算符：扩展运算符（spread）是三个点（...）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。
+		console.log(...[1,2,3]);//1,2,3
+		//console.log(typeof(a));//1,2,3
+		console.log(1,...[1,2,3],4);//1,1,2,3,4
+		//扩展运算符应用：
+		//（1）合并数组
+		//es5
+		let more=[3,4];
+		console.log([1,2].concat(more));//[1,2,3,4]
+		//es6
+		console.log([1,2,...more]);//[1,2,3,4]
+		// （2）与解构赋值结合生成新数组，注意：与解构赋值结合必须放在尾部，否则报错
+		//（3）函数返回值：JavaScript 的函数只能返回一个值，如果需要返回多个值，只能返回数组或对象。扩展运算符提供了解决这个问题的一种变通方法。
+//		var dateFields = readDateFields(database);
+//		var d = new Date(...dateFields);
+		//上面代码从数据库取出一行数据，通过扩展运算符，直接将其传入构造函数Date。
+		//copyWithin(target,start,end)
+		//target:必选，从什么位置 开始更换.start:可选，从什么位置选择。end: 可选，在什么位置结束。
+		console.log([1,2,3,4,5].copyWithin(1,0));
+		//find(),findIndex()
+		//find():参数是一个回调函数
+		[1,2,3,5].find(function(value,index,arr){
+			if(value>2)console.log(value)
+		})//3,5      value:值 index:下标 arr:数组
+		//fill(target,start,end):填充数组  改变原数组
+		let arr=['a','b','c']
+		console.log(arr.fill(7));//[7,7,7]
+		console.log(arr.fill(6,1,2));//[7,6,7]
+		//ES6 提供三个新的方法——entries()，keys()和values()——用于遍历数组。它们都返回一个遍历器对象（详见《Iterator》一章），可以用for...of循环进行遍历，唯一的区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历。
+//		for (let index of ['a', 'b'].keys()) {
+//  			console.log(index);
+//		}
+		// 0
+		// 1
+//
+//		for (let elem of ['a', 'b'].values()) {
+//  			console.log(elem);
+//		}
+		// 'a'
+		// 'b'
+
+//		for (let [index, elem] of ['a', 'b'].entries()) {
+//  			console.log(index, elem);
+//		}
+		// 0 "a"
+		// 1 "b"
+		//如果不使用for...of循环，可以可以手动调用遍历器对象的next方法，进行遍历。
+		let letter = ['a', 'b', 'c'];
+		let entries = letter.entries();
+		console.log(entries.next().value); // [0, 'a']
+		console.log(entries.next().value); // [1, 'b']
+		console.log(entries.next().value); // [2, 'c']
+		console.log(Array.prototype);
+	</script>
+</body>
+</html>

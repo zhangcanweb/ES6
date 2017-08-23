@@ -1,0 +1,6 @@
+ES5只有两种声明变量的形式：var和function
+ES6游六中方式：var function let const class import、
+声明提前：ES5中var声明变量声明提前 赋值在原地。function声明函数整体提前。ES6中let声明不能提前必须先复制不然报错。
+作用域：ES5中只有全局作用域和局部作用域，只有函数才能建立新的作用域。ES6中新有块级作用域，每个块级作用域互不影响。
+重复声明：ES5中可以重复声明一个变量，ES6中let和const声明过的变量不能重复声明。
+顶层对象：在浏览器环境中指的window对象，在node指的是global对象。ES5中顶层对象的属性与全局变量是等价的。ES6中取消了。

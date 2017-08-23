@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ES6</title>
+</head>
+
+<body>
+	<script>
+		//es6中把全局函数parseInt(),parseFloat()放入了Number对象中目的是减少全局对象的方法， 使得模块化
+		//es5用法
+		console.log(parseInt('25.5'));
+		console.log(parseFloat('25.5a'));
+		//es6用法
+		console.log(Number.parseInt("25.5"));//25
+		console.log(Number.parseFloat("25.5a"));//25.5
+		//Number.isInteger();判断是不是整数，参数为数值类型
+		console.log(Number.isInteger(25.5));//false
+		console.log(Number.isInteger(25));//true
+		console.log(Number.isInteger("25"));//false
+		//Math.trunc();去除小数部分，对于不是数值类型的类型，number先转为number类型
+		console.log(Math.trunc('121.1'));//121
+		console.log(Math.trunc('121.1a'));//NaN
+		// Math.sign();判断一个数是正数，负数，还是NaN
+		console.log(Math.sign(1));//1
+		console.log(Math.sign(-1));//-1
+		console.log(Math.sign(0));//0
+		console.log(Math.sign(-0));//-0
+		console.log(Math.sign("1a"));//NaN
+		console.log(Math.sign("a"));//NaN
+		//Math.cbrt();计算一个数的立方根
+		console.log(Math.cbrt("255"));//6.3413.....
+		console.log(Math.cbrt(255));//6.3413.....
+		//Math.imul();计算两个参数的s乘积
+		console.log(Math.imul(4,4));//16
+		console.log(Math.imul(-4,4));//-16
+		console.log(Math.imul("4",4));//16
+		console.log(Math.imul(4));//0
+		//Math.hypot方法返回所有参数的平方和的平方根。
+		console.log(Math.hypot(3,4));//5
+		console.log(Math.hypot("3",4));//5
+		console.log(Math.hypot(4));//4
+	</script>
+</body>
+</html>

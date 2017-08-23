@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6-Symbol</title>
+</head>
+<body>
+	<script>
+		//es6中新添加的数据类型：Symbol。前六种为：string,Number，null,Boolean,undefined,Object
+		//symbol:表示独一无二。
+		let s=Symbol();
+		console.log(typeof s);
+		//Symbol("x")：参数x只是在控制台打出时对数据变量的区别，注意：参数相同数据不相同
+		const s1=Symbol("a");
+		const s2=Symbol("a");
+		s1===s2//false
+		//如果 Symbol 的参数是一个对象，就会调用该对象的toString方法，将其转为字符串，然后才生成一个 Symbol 值。
+		let obj={
+			name:"rose",
+			tostring(){
+				return "abc";
+			}
+		}
+		let s3=Symbol(obj);
+		console.log(s3);
+		//Symbol 值不能与其他类型的值进行运算，会报错。但是，Symbol 值可以显式转为字符串另外，Symbol 值也可以转为布尔值，但是不能转为数值。
+		//
+	</script>
+</body>
+</html>
